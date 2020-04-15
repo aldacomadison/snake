@@ -2,6 +2,14 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  margin:100px auto 0 auto;
+  width: 80%;
+  text-align: center;
+}
 canvas {
-  display: block;
+  	position: absolute;
+    border: 5px solid black;
+  	margin-left: -350px; /* This is half the width */
 }
