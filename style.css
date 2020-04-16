@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: rgb(49,51,53);
 }
 
 body {
@@ -11,5 +12,6 @@ body {
 canvas {
   	position: absolute;
     border: 5px solid black;
-  	margin-left: -350px; /* This is half the width */
+  	margin-left: -250px; /* This is half the width */
+    margin-top: -50px;
 }

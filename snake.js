@@ -9,7 +9,7 @@ function Snake() {
   this.eat = function(pos) {
     var d = dist(this.x, this.y, pos.x, pos.y);
     if (d < 50) {
-      this.total++;
+      this.total ++;
       return true;
     } else {
       return false;
@@ -21,21 +21,26 @@ function Snake() {
     this.yspeed = y;
   }
 
-  // this.death = function() {
-  //   for (var i = 0; i < this.tail.length; i++) {
-  //     var pos = this.tail[i];
-  //     var d = dist(this.x, this.y, pos.x, pos.y);
-  //     if (d < 1) {
-  //       this.total = 0;
-  //       this.tail = [];
-  //     }
-  //   }
-  // }
+  this.death = function() {
+    for (var i = 0; i < this.tail.length; i++) {
+      var pos = this.tail[i];
+      var d = dist(this.x, this.y, pos.x, pos.y);
+      if (this.tail.length > 20) {
+        this.total = 0;
+        this.tail = [];
+        return 'end';
+      }
+      else {
+        return 'game';
+      }
+    }
+    return 'game';
+  }
 
   this.update = function() {
     if (this.total === this.tail.length) {
       for (var i = 0; i < this.tail.length - 1; i++) {
-        this.tail[i] = this.tail[i + 1];
+        this.tail[i] = this.tail[i+1];
       }
     }
     this.tail[this.total - 1] = createVector(this.x, this.y);
@@ -60,8 +65,8 @@ function Snake() {
     fill(random(255),random(255),random(255));
     ellipse(this.x, this.y, scl*2, scl*2);
     fill(0);
-    ellipse(this.x-7, this.y-2, scl/2, scl/2);
-    ellipse(this.x+7, this.y-2, scl/2, scl/2);
+    ellipse(this.x-5, this.y-2, scl/2, scl/2);
+    ellipse(this.x+5, this.y-2, scl/2, scl/2);
 
 
   }
